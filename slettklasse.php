@@ -31,7 +31,7 @@
   ?>
 </select>
 <br/>
-  <input type="submit" value="Slett klassenavn" name="slettKlasseKnapp" id="slettKlasseKnapp" /> 
+  <input type="submit" value="Slett klasse" name="slettKlasseKnapp" id="slettKlasseKnapp" /> 
 </form>
 
 <?php
@@ -61,7 +61,7 @@
               mysqli_query($db,$sqlSetning) or die ("ikke mulig &aring; slette data i databasen");
                 /* SQL-setning sendt til database-serveren */
 		
-              print ("F&oslash;lgende klasse er n&aring; slettet: $klassekode  <br />");
+              print ("F&oslash;lgende klasse er n&aring; slettet: $klassekode $klassenavn  <br />");
             }
         }
     }
