@@ -15,17 +15,17 @@
   <?php
     // Hent liste over klasser dynamisk fra DB
     include_once("db-tilkobling.php"); // bruk include_once så den ikke lastes to ganger
-    $sql = "SELECT brukernavn FROM student ORDER BY brukernavn";
+    $sql = "SELECT brukernavn, fornavn, etternavn FROM student ORDER BY brukernavn";
     $res = mysqli_query($db, $sql) or die("ikke mulig &aring; hente data fra databasen");
 
     if (mysqli_num_rows($res) === 0) {
       // Valgfritt: Vis en "tom" option hvis det ikke finnes klasser
-      echo "<option value='' disabled selected>Ingen klasser registrert</option>";
+      echo "<option value='' disabled selected>Ingen student registrert</option>";
     } else {
       while ($rad = mysqli_fetch_assoc($res)) {
         $kode = htmlspecialchars($rad['brukernavn']);
         $fnavn = htmlspecialchars($rad['fornavn']);
-        $enavn = htmlspecialchars($rad['etternavn'])
+        $enavn = htmlspecialchars($rad['etternavn']);
         echo "<option value='$kode'>$kode – $fnavn</option>";
       }
     }
