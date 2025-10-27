@@ -25,3 +25,5 @@
     }
   print ("</table>"); 
 ?>
+<br><br>
+<p><a href="index.html"> Tilbake til brukerfunksjoner</a></p>
