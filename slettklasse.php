@@ -31,7 +31,7 @@
   ?>
 </select>
 <br/>
-  <input type="submit" value="Slett klasse" name="slettKlasseKnapp" id="slettKlasseKnapp" /> 
+  <input type="submit" value="Slett klassekode" name="slettKlasseKnapp" id="slettKlasseKnapp" /> 
 </form>
 
 <?php
