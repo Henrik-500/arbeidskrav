@@ -1,13 +1,13 @@
-<?php  /* slett-klasse */
+<?php  /* slett-student */
 /*
-/*  Programmet lager et skjema for å velge en klasse som skal slettes  
-/*  Programmet sletter den valgte klassen
+/*  Programmet lager et skjema for å velge en student som skal slettes  
+/*  Programmet sletter den valgte Studenten
 */
 ?> 
 
 <script src="funksjoner.js"> </script>
 
-<h3>Slett klasse</h3>
+<h3>Slett Student</h3>
 
 <form method="post" action="" id="slettStudentSkjema" name="slettStudentSkjema" onSubmit="return bekreft()">
  Brukernavn

@@ -56,7 +56,15 @@
               print ("Klassen finnes ikke");
             }
           else
-            {	  
+            {
+            $sjekk = "SELECT COUNT(*) AS ant FROM student WHERE klassekode='$klassekode'";
+            $res = mysqli_query($db, $sjekk) or die("ikke mulig &aring; hente data fra databasen);
+            $rad = mysqli_fetch_assoc($res);
+            
+            if ((int)$rad['ant'] > 0) {
+            print("Kan ikke slette klassen fordi det finnes studenter registrert i den.");
+            } else {
+                
               $sqlSetning="DELETE FROM klasse WHERE klassekode='$klassekode';";
               mysqli_query($db,$sqlSetning) or die ("ikke mulig &aring; slette data i databasen");
                 /* SQL-setning sendt til database-serveren */
