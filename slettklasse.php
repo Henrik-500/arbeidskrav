@@ -10,7 +10,27 @@
 <h3>Slett klasse</h3>
 
 <form method="post" action="" id="slettKlasseSkjema" name="slettKlasseSkjema" onSubmit="return bekreft()">
-  Klassekode <input type="text" id="klassekode" name="klassekode" required /> <br/>
+ Klassekode
+<select id="klassekode" name="klassekode" required>
+  <?php
+    // Hent liste over klasser dynamisk fra DB
+    include_once("db-tilkobling.php"); // bruk include_once så den ikke lastes to ganger
+    $sql = "SELECT klassekode, klassenavn FROM klasse ORDER BY klassekode";
+    $res = mysqli_query($db, $sql) or die("ikke mulig &aring; hente data fra databasen");
+
+    if (mysqli_num_rows($res) === 0) {
+      // Valgfritt: Vis en "tom" option hvis det ikke finnes klasser
+      echo "<option value='' disabled selected>Ingen klasser registrert</option>";
+    } else {
+      while ($rad = mysqli_fetch_assoc($res)) {
+        $kode = htmlspecialchars($rad['klassekode']);
+        $navn = htmlspecialchars($rad['klassenavn']);
+        echo "<option value='$kode'>$kode – $navn</option>";
+      }
+    }
+  ?>
+</select>
+<br/>
   <input type="submit" value="Slett klassenavn" name="slettKlasseKnapp" id="slettKlasseKnapp" /> 
 </form>
 
@@ -46,5 +66,3 @@
         }
     }
 ?> 
-<br><br>
-<p><a href="index.html"> Tilbake til brukerfunksjoner</a></p>
